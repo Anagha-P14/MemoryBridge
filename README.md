@@ -4,10 +4,10 @@ Built with FastAPI and a configurable AI inference layer, the platform supports 
 The project also includes a reproducible benchmarking initiative to compare local CPU-based LLM inference against AMD Instinct MI300X cloud GPU inference, measuring response latency, time to first token, throughput, and error rates under consistent test conditions. <br>
 
 ---
-# Architecture
+## Architecture
 
 ---
-# Getting started
+## Getting started
 <b>1. Prerequisites</b>
 - Windows with Python installed.
 - Git (optional, for cloning and version control).
@@ -27,6 +27,8 @@ uvicorn main:app --reload \
 
 ---
 ## Tech Stack
+Python, FastAPI, HTML, CSS, JavaScript, and SQLite. It also supports document uploads, appointment management, calendar invitations
+
 ---
 ## CPU-versus-MI300X benchmark
 | Metric | Meaning |
