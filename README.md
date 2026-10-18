@@ -39,3 +39,10 @@ Python, FastAPI, HTML, CSS, JavaScript, and SQLite. It also supports document up
 | Requests/second | Completed requests per unit of time under the stated workload |
 | Error rate | Failed requests divided by attempted requests |
 | p50 / p95 latency | Median and 95th-percentile latency across measured requests |
+
+## Conclusion
+MemoryBridge is more than just a technology project — it is an effort to make the journey of caring for someone with memory-related difficulties a little easier, safer, and more human. By bringing together AI, thoughtful care coordination, and AMD-powered computing, we aim to reduce the burden on caregivers and help doctors focus on what matters most: understanding the person behind the patient record.
+
+We believe technology is at its best when it doesn't replace human care, but strengthens it. MemoryBridge is our step toward a future where no important observation gets lost, no caregiver feels they have to manage everything alone, and every patient receives more informed and coordinated support.
+
+**Because behind every medical record is a person, behind every patient is a family .**
