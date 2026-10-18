@@ -1,0 +1,10 @@
+[
+{"id":"c1","text":"He keeps forgetting names and repeats the same question. He sleeps badly at night. Cooking has become hard for him and I help with bills now.","red":[]},
+{"id":"c2","text":"She said she wants to die last night and has not been eating. I do not know what to do. She forgets my name sometimes and gets angry.","red":["self_harm","not_eating_drinking"]},
+{"id":"c3","text":"Dad fell yesterday and hit his head on the table, he seemed sleepy afterwards. He also forgets to take tablets and repeats questions often.","red":["head_injury"]},
+{"id":"c4","text":"He got lost near the park and a neighbour brought him back. Memory is worse in the evenings and he is angry and suspicious of us often.","red":["wandering_lost"]},
+{"id":"c5","text":"Maybe she took her tablets twice, I am not sure. Her sleep is poor and she seems low in mood and forgets things she was told.","red":["med_double_dose"]},
+{"id":"c6","text":"Mom is fine mostly, forgets where she keeps glasses and repeats stories sometimes, but enjoys cooking and manages her bills and shopping well.","red":[]},
+{"id":"c7","text":"खो गए थे बाज़ार में, पड़ोसी घर छोड़ गए। दवा दो बार दे दी शायद।","red":["wandering_lost","med_double_dose"]},
+{"id":"c8","text":"He suddenly became confused and his speech was slurred this morning. He has also been forgetting recent events for months.","red":["stroke_signs"]}
+]

@@ -1,0 +1,7 @@
+{
+  "caregiver_text": "My father Mr Ramesh Iyer is 74. I am his daughter, you can reach me on +91 98450 12345. Over the last two months he keeps forgetting recent conversations and asks the same question again and again. Last Sunday he went to the market and got lost on the way back; a neighbour brought him home. He has stopped managing his bills and I now do them. I think he may have taken his morning tablets twice on Tuesday, I am not sure. He sleeps badly and is awake most nights. In the evenings he becomes angry and shouts at us, which is new. Maybe he seems a bit low in mood too.",
+  "prior_letter": "Memory clinic letter 14/03/2026. MMSE 24/30. Started donepezil 5 mg once daily. Advised review in six months.",
+  "target_lang": "hi",
+  "known_names": ["Ramesh Iyer"],
+  "mri_probs": {"NonDemented": 0.41, "VeryMild": 0.38, "Mild": 0.18, "Moderate": 0.03}
+}

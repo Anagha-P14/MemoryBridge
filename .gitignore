@@ -1,0 +1,12 @@
+.venv/
+.venv-*/
+__pycache__/
+*.py[cod]
+.env
+.env.*
+!.env.example
+data/*.db
+data/*.db-*
+data/audit.jsonl
+data/private_uploads/
+reports/

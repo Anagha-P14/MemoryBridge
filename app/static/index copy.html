@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MemoryBridge — Care coordination</title>
+<style>
+:root{--bg:#f4f7f6;--card:#fff;--ink:#193438;--mut:#647777;--line:#dce7e4;--brand:#17665e;--brand2:#dff3ed;--warn:#fff0d5;--danger:#ffe4e2;--good:#e0f5e8;--shadow:0 10px 30px #173c4210}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 system-ui,-apple-system,Segoe UI,sans-serif}header{background:#173c42;color:#fff;padding:20px max(20px,calc((100% - 1120px)/2));display:flex;gap:12px;align-items:center;flex-wrap:wrap}header h1{margin:0;font-size:23px}header small{color:#cde5df}main{max-width:1120px;margin:24px auto;padding:0 18px}.hero{background:linear-gradient(120deg,#173c42,#216d66);color:white;border-radius:20px;padding:30px;box-shadow:var(--shadow)}.hero h2{font-size:clamp(25px,4vw,38px);line-height:1.15;margin:8px 0 14px;max-width:720px}.quote{color:#c5e8de;font-style:italic}.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:18px 0}.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;margin:14px 0;box-shadow:var(--shadow)}.stat{padding:16px}.stat b{display:block;font-size:28px;margin-top:3px}.muted{color:var(--mut);font-size:13px}.label{font-size:13px;color:var(--mut);display:block;margin:12px 0 5px}input,textarea,select{width:100%;padding:11px 12px;border:1px solid #cbdad6;border-radius:10px;background:white;color:var(--ink);font:inherit}textarea{min-height:115px}button{font:inherit;cursor:pointer;border:0;border-radius:10px;padding:10px 14px;background:var(--brand);color:white;margin:6px 6px 0 0}button.secondary{background:#e8f0ee;color:var(--ink)}button.danger{background:#9e2e2b}button.warn{background:#8a5b0a}.tabs{display:flex;gap:6px;flex-wrap:wrap;margin:16px 0}.tabs button{background:#e2ece9;color:var(--ink)}.tabs button.active{background:var(--brand);color:#fff}.hidden{display:none!important}.banner{padding:12px;border-radius:10px;background:var(--brand2);margin:10px 0}.banner.warn{background:var(--warn)}.banner.danger{background:var(--danger)}.row{padding:12px 0;border-top:1px solid var(--line)}.pill{display:inline-block;font-size:11px;border:1px solid var(--line);border-radius:99px;padding:2px 8px;margin-left:6px}.login{max-width:500px;margin:22px auto}.section-title{display:flex;align-items:center;gap:10px;justify-content:space-between}.section-title h2{margin:0;font-size:20px}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit;background:#f4f7f6;padding:12px;border-radius:10px}.notice{font-size:13px;color:#5c6968}.status{font-weight:700}.footer{padding:24px 0;color:var(--mut);font-size:12px}@media(max-width:760px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.two{grid-template-columns:1fr}header{padding:16px 18px}.hero{padding:22px}}
+
+.how-it-works {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 30px 24px 24px;
+  margin: 24px 0 32px;
+  background: #ffffff;
+  border: 1px solid #e0ebe9;
+  border-radius: 18px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #173b43;
+}
+
+/* Section heading */
+.section-heading {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.eyebrow {
+  display: inline-block;
+  color: #197d76;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+}
+
+.section-heading h2 {
+  font-size: 27px;
+  line-height: 1.3;
+  margin: 0 0 8px;
+  color: #173b43;
+}
+
+.section-heading p {
+  color: #62767b;
+  font-size: 14px;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Three-column layout */
+.steps-container {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+/* Individual cards */
+.step-card {
+  box-sizing: border-box;
+  background: #f8fbfa;
+  border: 1px solid #e2edeb;
+  border-radius: 14px;
+  padding: 24px 20px;
+  transition: transform 0.2s ease,
+              box-shadow 0.2s ease,
+              border-color 0.2s ease;
+}
+
+.step-card:hover {
+  transform: translateY(-3px);
+  border-color: #b9dcd6;
+  box-shadow: 0 8px 22px rgba(23, 75, 72, 0.08);
+}
+
+/* Icon container */
+.step-icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e3f2ef;
+  color: #197d76;
+  border-radius: 12px;
+  margin-bottom: 18px;
+}
+
+.step-icon svg {
+  width: 25px;
+  height: 25px;
+}
+
+/* Step label */
+.step-number {
+  display: block;
+  color: #197d76;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  margin-bottom: 8px;
+}
+
+/* Card content */
+.step-card h3 {
+  color: #173b43;
+  font-size: 17px;
+  line-height: 1.4;
+  margin: 0 0 10px;
+}
+
+.step-card p {
+  color: #60747a;
+  font-size: 13px;
+  line-height: 1.8;
+  margin: 0;
+}
+
+/* Bottom message */
+.section-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  border-top: 1px solid #e7efed;
+  margin-top: 24px;
+  padding-top: 18px;
+  color: #60747a;
+  font-size: 12px;
+  text-align: center;
+}
+
+.footer-heart {
+  color: #197d76;
+  font-size: 15px;
+}
+
+/* Tablet */
+@media (max-width: 800px) {
+  .steps-container {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .step-card {
+    padding: 20px;
+  }
+
+  .step-icon {
+    margin-bottom: 14px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .how-it-works {
+    padding: 24px 16px;
+    margin: 18px 0 24px;
+    border-radius: 14px;
+  }
+
+  .section-heading h2 {
+    font-size: 23px;
+  }
+
+  .section-heading {
+    margin-bottom: 22px;
+  }
+
+  .step-card h3 {
+    font-size: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .step-card {
+    transition: none;
+  }
+
+  .step-card:hover {
+    transform: none;
+  }
+}
+</style></head><body>
+<header><div style="font-size:28px">♡</div><div><h1>MemoryBridge</h1><small>Care. Connect. Coordinate.</small></div><span style="margin-left:auto" id="headerUser" class="muted"></span></header>
+<main>
+<section id="welcome">
+ <div class="hero"><div style="letter-spacing:.12em;font-size:12px">A SHARED SPACE FOR BETTER COORDINATION</div><h2>Better care begins with better communication.</h2><p>Helping caregivers, accompanying helpers and clinicians stay connected—even when they cannot be in the same room.</p><div class="quote">“Small acts of care create meaningful moments of connection.”</div></div>
+ <!--<div class="grid"><div class="card stat"><span class="muted">Patients supported</span><b id="sPatients">—</b><span class="muted">Authorized demo records</span></div><div class="card stat"><span class="muted">Pending reviews</span><b id="sReviews">—</b><span class="muted">From the database</span></div><div class="card stat"><span class="muted">Appointments</span><b id="sAppointments">—</b><span class="muted">Requested or confirmed</span></div><div class="card stat"><span class="muted">AI mode</span><b id="sAI" style="font-size:19px">Checking</b><span class="muted">Model status is not GPU proof</span></div></div>
+ --->
+<!-- How It Works Section -->
+<section class="how-it-works">
+  <div class="section-heading">
+    <span class="eyebrow">YOUR CARE, CONNECTED</span>
+    <h2>How it works</h2>
+    <p>One shared space. Better coordinated care.</p>
+  </div>
+
+  <div class="steps-container">
+
+    <!-- Step 1 -->
+    <article class="step-card">
+      <div class="step-icon">
+        <svg viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="1.8"
+             stroke-linecap="round" stroke-linejoin="round"
+             aria-hidden="true">
+          <rect x="5" y="3" width="14" height="18" rx="2"/>
+          <path d="M9 3.5h6M9 9h6M9 13h6M9 17h3"/>
+        </svg>
+      </div>
+      <span class="step-number">STEP 01</span>
+      <h3>Record observations</h3>
+      <p>
+        Caregivers record daily observations, symptoms,
+        and changes in an elderly person's well-being.
+      </p>
+    </article>
+
+    <!-- Step 2 -->
+    <article class="step-card">
+      <div class="step-icon">
+        <svg viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="1.8"
+             stroke-linecap="round" stroke-linejoin="round"
+             aria-hidden="true">
+          <path d="M21 11.5a8.5 8.5 0 0 1-8.5 8.5
+                   9 9 0 0 1-4-.9L3 21l1.9-5.5
+                   A8.5 8.5 0 1 1 21 11.5Z"/>
+          <path d="M8 11h8M12 7v8"/>
+        </svg>
+      </div>
+      <span class="step-number">STEP 02</span>
+      <h3>Share care updates</h3>
+      <p>
+        Keep important notes and supporting documents
+        organized for the care team to review.
+      </p>
+    </article>
+
+    <!-- Step 3 -->
+    <article class="step-card">
+      <div class="step-icon">
+        <svg viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="1.8"
+             stroke-linecap="round" stroke-linejoin="round"
+             aria-hidden="true">
+          <path d="M12 22s8-4 8-11V5l-8-3-8 3v6
+                   c0 7 8 11 8 11Z"/>
+          <path d="M12 8v8M8 12h8"/>
+        </svg>
+      </div>
+      <span class="step-number">STEP 03</span>
+      <h3>Connect with doctors</h3>
+      <p>
+        Doctors review observations, manage appointment
+        requests, and provide follow-up instructions.
+      </p>
+    </article>
+
+  </div>
+
+  <div class="section-footer">
+    <span class="footer-heart">♥</span>
+    Helping everyone involved in care stay informed
+    and connected.
+  </div>
+</section>
+ <div class="two"><div class="card"><h3>Caregiver / helper</h3><p class="muted">Record observations, maintain patient documents, request appointments and see reviewed updates.</p></div><div class="card"><h3>Doctor</h3><p class="muted">Review observations, inspect supporting evidence, manage appointment requests and record clinician-authored follow-ups.</p></div></div>
+ <div class="card"><h3>Before you begin</h3><ul><li>Use clear, everyday language to describe what was observed and when.</li><li>Attach records only to the correct patient.</li><li>AI output is a draft, not a diagnosis or treatment recommendation.</li><li>For an immediate emergency, contact local emergency services—do not wait for an AI response or appointment.</li></ul><button onclick="showLogin()">Secure login</button><p class="notice">Portfolio prototype. Use synthetic data only. Not for clinical use.</p></div>
+</section>
+<section id="loginView" class="hidden"><div class="card login"><div class="section-title"><h2>Sign in to MemoryBridge</h2><button class="secondary" onclick="backHome()">Back</button></div><label class="label">Email</label><input id="email" type="email" autocomplete="username" placeholder="you@example.com"><label class="label">Password</label><input id="password" type="password" autocomplete="current-password"><button onclick="login()">Sign in</button><div id="loginMsg" class="banner hidden"></div><hr style="border:0;border-top:1px solid var(--line);margin:20px 0"><b>Local demo accounts</b><p class="muted">Caregiver: caregiver@example.test / CareDemo123!<br>Helper: helper@example.test / HelperDemo123!<br>Doctor: doctor@example.test / DoctorDemo123!</p><p class="notice">Demo accounts are seeded when DEMO_MODE=true. Do not use these credentials in a deployed environment.</p></div></section>
+<section id="workspace" class="hidden"><div class="card"><div class="section-title"><div><div class="muted" id="roleLabel"></div><h2 id="welcomeUser">Workspace</h2></div><button class="secondary" onclick="logout()">Log out</button></div><div class="tabs" id="tabs"></div><div id="workspaceContent"></div></div></section>
+    <style>
+    .sidebar-footer {
+    position: static;
+    width: 100%;
+    text-align: center;
+    color: #888888;
+    font-size: 13px;
+    border-top: 1px solid #cccccc;
+    padding: 16px 0;
+    margin-top: 24px;
+}
+    </style>
+    <div class="footer">
+    MemoryBridge -- Sensitive data should not be entered into this demo.
+    AI summaries require human review.
+</div>
+
+</main>
+
+<footer class="sidebar-footer">
+    © 2026 Anagha. All rights reserved.
+</footer>
+
+
+
+</main>
+<script>
+const $=id=>document.getElementById(id);let me=null,activeTab='';const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+async function api(url,opts={}){const r=await fetch(url,{...opts,headers:{...(opts.body instanceof FormData?{}:{'Content-Type':'application/json'}),...(opts.headers||{})}});let data;try{data=await r.json()}catch{data=await r.text()}if(!r.ok)throw new Error(data.detail||data.message||`Request failed (${r.status})`);return data}
+function showLogin(){$('welcome').classList.add('hidden');$('loginView').classList.remove('hidden');$('workspace').classList.add('hidden')};function backHome(){$('welcome').classList.remove('hidden');$('loginView').classList.add('hidden')}
+async function login(){const msg=$('loginMsg');msg.classList.remove('hidden');msg.textContent='Signing in…';try{me=await api('/api/auth/login',{method:'POST',body:JSON.stringify({email:$('email').value,password:$('password').value})});$('password').value='';renderWorkspace()}catch(e){msg.className='banner danger';msg.textContent=e.message}}
+async function logout(){try{await api('/api/auth/logout',{method:'POST',body:'{}'})}catch{}me=null;$('headerUser').textContent='';$('workspace').classList.add('hidden');$('welcome').classList.remove('hidden');await loadPublicStats()}
+async function loadPublicStats(){try{const s=await api('/api/model-status');$('sAI').textContent=s.mode==='mock'?'Mock mode':'Endpoint set';const p=await api('/api/public-stats');if(p.available){$('sPatients').textContent=p.patients;$('sReviews').textContent=p.pending_reviews;$('sAppointments').textContent=p.appointments}else{$('sPatients').textContent='Sign in';$('sReviews').textContent='Sign in';$('sAppointments').textContent='Sign in'}}catch{$('sAI').textContent='Unavailable';$('sPatients').textContent='—';$('sReviews').textContent='—';$('sAppointments').textContent='—'}}
+function renderWorkspace(){ $('welcome').classList.add('hidden');$('loginView').classList.add('hidden');$('workspace').classList.remove('hidden');$('headerUser').textContent=me.display_name+' · '+me.role;$('welcomeUser').textContent='Welcome, '+me.display_name;$('roleLabel').textContent=me.role.toUpperCase()+' WORKSPACE';const tabs=me.role==='doctor'?[['queue','Review queue'],['appointments','Appointments'],['clinical','Clinical updates']]:[['observe','New observation'],['records','Patient records'],['appointments','Appointments']];$('tabs').innerHTML=tabs.map(([id,label])=>`<button class="${id===tabs[0][0]?'active':''}" onclick="openTab('${id}')">${label}</button>`).join('');activeTab=tabs[0][0];openTab(activeTab);loadStats()}
+async function loadStats(){try{const s=await api('/api/dashboard/stats');$('sPatients').textContent=s.patients;$('sReviews').textContent=s.pending_reviews;$('sAppointments').textContent=s.upcoming_or_requested_appointments;$('sAI').textContent=(await api('/api/model-status')).mode}catch{}}
+function openTab(id){activeTab=id;document.querySelectorAll('#tabs button').forEach(b=>b.classList.toggle('active',b.getAttribute('onclick').includes(`'${id}'`)));if(id==='observe')observeView();if(id==='records')recordsView();if(id==='queue')queueView();if(id==='appointments')appointmentsView();if(id==='clinical')clinicalView()}
+function observeView(){$('workspaceContent').innerHTML=`<h3>Record a patient observation</h3><p class="muted">Describe what was observed, when it happened, and who witnessed it. Do not include unnecessary identifiers.</p><label class="label">Patient ID</label><input id="patientId" value="MB-001"><label class="label">Observation</label><textarea id="note" placeholder="Example: Yesterday evening, the helper reported that..."></textarea><label class="label">Previous clinic letter (optional)</label><textarea id="prior" style="min-height:75px" placeholder="Paste only synthetic or approved information"></textarea><label class="label">Summary language</label><select id="lang"><option value="en">English</option><option value="hi">Hindi</option><option value="kn">Kannada</option></select><button onclick="submitObservation()">Save and prepare review draft</button><div id="observationResult"></div><hr><h3>Upload a patient document</h3><label class="label">Patient ID</label><input id="docPatient" value="MB-001"><label class="label">PDF or image</label><input id="docFile" type="file" accept=".pdf,.png,.jpg,.jpeg,.webp"><button onclick="uploadDoc()">Upload privately</button><div id="uploadMsg" class="muted"></div>`}
+async function submitObservation(){const out=$('observationResult');out.innerHTML='<div class="banner">Saving and checking…</div>';try{const r=await api('/api/observations',{method:'POST',body:JSON.stringify({patient_id:$('patientId').value,note:$('note').value,prior_letter:$('prior').value,target_lang:$('lang').value})});out.innerHTML=`<div class="banner ${r.status.includes('URGENT')?'danger':r.status.includes('REVIEW')||r.status.includes('UNAVAILABLE')?'warn':''}"><b>${esc(r.status)}</b><br>${(r.reasons||[]).map(esc).join('<br>')}</div><h4>Visit preparation draft</h4><pre>${esc(r.patient_view?.body||'Summary unavailable')}</pre><h4>Questions to discuss</h4><ul>${(r.questions||[]).map(q=>`<li>${esc(q)}</li>`).join('')}</ul><p class="notice">This is not a diagnosis. Clinician review is required. Case ID: ${esc(r.id)}</p>`;loadStats()}catch(e){out.innerHTML=`<div class="banner danger">${esc(e.message)}</div>`}}
+async function uploadDoc(){const f=$('docFile').files[0];if(!f){$('uploadMsg').textContent='Choose a file first.';return}const fd=new FormData();fd.append('file',f);try{const r=await api('/api/patients/'+encodeURIComponent($('docPatient').value)+'/documents',{method:'POST',body:fd});$('uploadMsg').textContent='Uploaded: '+r.filename+' (private storage)'}catch(e){$('uploadMsg').textContent=e.message}}
+async function recordsView(){ $('workspaceContent').innerHTML=`<h3>Patient records</h3><label class="label">Patient ID</label><input id="recordPatient" value="MB-001"><button onclick="loadDocuments()">Load documents</button><div id="docs"></div>`;loadDocuments()}
+async function loadDocuments(){try{const docs=await api('/api/patients/'+encodeURIComponent($('recordPatient').value)+'/documents');$('docs').innerHTML=docs.map(d=>`<div class="row"><b>${esc(d.original_name)}</b><div class="muted">Uploaded ${esc(d.created_at)}</div><a href="/api/documents/${encodeURIComponent(d.id)}/download">Download (authenticated)</a></div>`).join('')||'<p class="muted">No documents yet.</p>'}catch(e){$('docs').innerHTML=`<div class="banner danger">${esc(e.message)}</div>`}}
+async function queueView(){ $('workspaceContent').innerHTML='<h3>Cases awaiting clinician attention</h3><div id="queueList">Loading…</div><div id="caseDetail"></div>';try{const q=await api('/api/doctor/review-queue');$('queueList').innerHTML=q.map(x=>`<div class="row"><b>${esc(x.patient)}</b> <span class="pill">${esc(x.status)}</span><div class="muted">${esc(x.created_at)} · ${esc(x.flags.join(', '))}</div><button onclick="openCase('${esc(x.id)}')">Review</button></div>`).join('')||'<p class="muted">No observations in the review queue.</p>'}catch(e){$('queueList').textContent=e.message}}
+async function openCase(id){try{const c=await api('/api/observations/'+encodeURIComponent(id));$('caseDetail').innerHTML=`<div class="card"><h3>Source observation</h3><pre>${esc(c.original_note||'Not available')}</pre><h3>Extracted findings</h3>${(c.findings||[]).map(f=>`<div class="row"><b>${esc(f.category)}</b> · ${esc(f.label)}<p>${esc(f.summary)}</p><p class="muted">Source quote: “${esc(f.quote)}” · grounding: ${esc(f.grounding)}</p></div>`).join('')||'<p class="banner warn">No AI findings available. Review the original note manually.</p>'}<h3>Safety and uncertainty</h3><ul>${(c.reasons||[]).map(x=>`<li>${esc(x)}</li>`).join('')}</ul><label class="label">Clinician review note</label><textarea id="reviewNote"></textarea><button onclick="reviewCase('${esc(id)}','approve')">Approve summary</button><button class="warn" onclick="reviewCase('${esc(id)}','needs_info')">Request more information</button><button class="danger" onclick="reviewCase('${esc(id)}','reject')">Reject draft</button><p class="notice">Approval applies to the summary review only. Enter clinical instructions separately and only when authorized.</p></div>`}catch(e){$('caseDetail').textContent=e.message}}
+async function reviewCase(id,action){try{await api('/api/observations/'+encodeURIComponent(id)+'/review',{method:'POST',body:JSON.stringify({action,note:$('reviewNote').value})});$('caseDetail').innerHTML='<div class="banner">Review decision saved and audit logged.</div>';queueView();loadStats()}catch(e){alert(e.message)}}
+async function appointmentsView(){ $('workspaceContent').innerHTML=`<h3>Appointments</h3><div id="appointmentList">Loading…</div>${me.role==='doctor'?'':'<hr><h3>Request an appointment</h3><label class="label">Patient ID</label><input id="apptPatient" value="MB-001"><label class="label">Doctor ID</label><input id="doctorId" value="demo-doctor"><label class="label">Date and time (include timezone)</label><input id="apptDate" type="datetime-local"><label class="label">Reason for visit (optional)</label><input id="apptReason"><button onclick="requestAppointment()">Request appointment</button><div id="apptMsg"></div>'}`;loadAppointments()}
+async function loadAppointments(){try{const a=await api('/api/appointments');$('appointmentList').innerHTML=a.map(x=>`<div class="row"><b>${esc(x.patient_name)}</b> · ${esc(x.start_at)} <span class="pill">${esc(x.status)}</span><p class="muted">${esc(x.reason||'No reason provided')}</p>${me.role==='doctor'&&x.status==='requested'?`<button onclick="setAppointment('${esc(x.id)}','confirmed')">Confirm</button><button class="danger" onclick="setAppointment('${esc(x.id)}','rejected')">Reject</button>`:''}${x.status==='confirmed'?`<a href="/api/appointments/${encodeURIComponent(x.id)}/calendar.ics">Download calendar invite</a>`:''}</div>`).join('')||'<p class="muted">No appointments yet.</p>'}catch(e){$('appointmentList').textContent=e.message}}
+async function requestAppointment(){try{const val=$('apptDate').value;if(!val)throw new Error('Choose a date and time');const local=new Date(val);const offset=-local.getTimezoneOffset();const sign=offset>=0?'+':'-';const hh=String(Math.floor(Math.abs(offset)/60)).padStart(2,'0'),mm=String(Math.abs(offset)%60).padStart(2,'0');const start_at=val+sign+hh+':'+mm;const r=await api('/api/appointments',{method:'POST',body:JSON.stringify({patient_id:$('apptPatient').value,doctor_id:$('doctorId').value,start_at,reason:$('apptReason').value})});$('apptMsg').textContent='Request saved. Status: '+r.status+'. It is not confirmed until the doctor accepts.';loadAppointments();loadStats()}catch(e){$('apptMsg').textContent=e.message}}
+async function setAppointment(id,status){try{await api(`/api/appointments/${encodeURIComponent(id)}/status?status=${status}`,{method:'POST',body:'{}'});loadAppointments()}catch(e){alert(e.message)}}
+function clinicalView(){$('workspaceContent').innerHTML=`<h3>Clinician-authored updates</h3><p class="muted">Use only clinician-authorized instructions. This prototype stores updates; email delivery is configured separately through SMTP environment variables in the next integration step.</p><label class="label">Patient ID</label><input id="clinicalPatient" value="MB-001"><label class="label">Medication record / instruction (clinician-authored only)</label><textarea id="medText"></textarea><label class="label">Effective date (YYYY-MM-DD)</label><input id="medDate" type="date"><button onclick="saveMedication()">Save medication record</button><div id="clinicalMsg"></div><hr><h3>Schedule follow-up</h3><label class="label">Follow-up date/time (ISO format)</label><input id="followDate" placeholder="2026-11-10T10:00:00+05:30"><label class="label">Instructions</label><textarea id="followText"></textarea><button onclick="saveFollowup()">Save follow-up</button>`}
+async function saveMedication(){try{const r=await api('/api/patients/'+encodeURIComponent($('clinicalPatient').value)+'/medication-records',{method:'POST',body:JSON.stringify({patient_id:$('clinicalPatient').value,instructions:$('medText').value,effective_date:$('medDate').value})});$('clinicalMsg').textContent=r.message}catch(e){$('clinicalMsg').textContent=e.message}}
+async function saveFollowup(){try{const r=await api('/api/patients/'+encodeURIComponent($('clinicalPatient').value)+'/follow-ups',{method:'POST',body:JSON.stringify({patient_id:$('clinicalPatient').value,due_at:$('followDate').value,instructions:$('followText').value})});$('clinicalMsg').textContent='Follow-up saved: '+r.id}catch(e){$('clinicalMsg').textContent=e.message}}
+loadPublicStats();
+</script></body></html>

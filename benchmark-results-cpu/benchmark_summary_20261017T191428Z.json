@@ -1,0 +1,34 @@
+{
+  "metadata": {
+    "timestamp_utc": "2026-10-17T19:14:27.837877+00:00",
+    "client_platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.13.5",
+    "requests": 3,
+    "concurrency": 1,
+    "warmup": 1,
+    "timeout_s": 180,
+    "prompt_set": "built-in synthetic MemoryBridge-like prompts v1",
+    "gpu_info_on_client": "rocm-smi unavailable on benchmark client (expected when client is Windows)",
+    "comparison_note": "See report limitations; endpoints may use different inference backends or model quantization."
+  },
+  "results": [
+    {
+      "label": "CPU",
+      "endpoint": "http://127.0.0.1:11434/v1",
+      "model": "qwen2.5:7b",
+      "requested": 3,
+      "successful": 3,
+      "failed": 0,
+      "concurrency": 1,
+      "warmup_requests": 1,
+      "wall_time_s": 22.5592,
+      "median_latency_s": 7.8984,
+      "p95_latency_s": 9.0104,
+      "median_ttft_s": 1.2359,
+      "approx_output_tokens": 52,
+      "approx_output_tokens_per_s": 2.305,
+      "requests_per_s": 0.133,
+      "token_count_note": "Approximate whitespace word count; use server-side token metrics for publication-grade token throughput."
+    }
+  ]
+}
